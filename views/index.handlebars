@@ -1,0 +1,55 @@
+<div class="row">
+  {{! Burgers to eat}}
+  <div class="col s6 center-align">
+    <ul>
+      {{#each brgr}}
+        {{#unless this.devoured}}
+          <div class="card light-green">
+            <p>
+              {{this.id}}. {{this.burger_name}}
+
+              <form action="update/{{this.id}}?_method=PUT" method="POST">
+                <input type="hidden" name="devoured" value="1">
+                <button type="submit" class="waves-effect waves-light btn green z-depth-4">DEVOUR IT!</button>
+              </form>
+            </p>
+          </div>
+        {{/unless}}
+      {{/each}}
+    </ul>
+  </div>
+
+  {{! Devoured Burgers}}
+  <div class="col s6 center-align">
+    <ul>
+      {{#each brgr}}
+        {{#if this.devoured}}
+          <div class="card light-green lighten-2">
+            <p class="grey-text">
+              {{this.id}}. {{this.burger_name}}
+            </p>
+          </div>
+        {{/if}}
+      {{/each}}
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col s3"></div>
+  <div class="col s6">
+    <div class="card-panel center-align deep-purple lighten-3"
+      <h1><strong>Order a Burger</strong></h1>
+      <form action="/create" method="POST" class="button-size">
+        {{! Dropdown that allows user to only pick burgers on menu }}
+        {{! {{> menu/menuDropdown}} }}
+        <div class="form-group">
+    <label for="ca">Burger Name</label>
+    <input type="text" id="ca" name="burgerInput">
+  </div>
+        <br>
+        <button type="submit" class="waves-effect waves-light btn deep-purple lighten-1 z-depth-4">SUBMIT</button>
+      </form>
+    </div>
+  </div>
+</div>
