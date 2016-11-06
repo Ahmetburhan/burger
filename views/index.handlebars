@@ -38,15 +38,11 @@
 <div class="row">
   <div class="col s3"></div>
   <div class="col s6">
-    <div class="card-panel center-align deep-purple lighten-3"
-      <h1><strong>Order a Burger</strong></h1>
+    <div class="card-panel center-align deep-purple lighten-3">
+      <h5 class="white-text"><strong>Order a Burger</strong></h5>
       <form action="/create" method="POST" class="button-size">
         {{! Dropdown that allows user to only pick burgers on menu }}
-        {{! {{> menu/menuDropdown}} }}
-        <div class="form-group">
-    <label for="ca">Burger Name</label>
-    <input type="text" id="ca" name="burgerInput">
-  </div>
+        {{> menu/menuDropdown}}
         <br>
         <button type="submit" class="waves-effect waves-light btn deep-purple lighten-1 z-depth-4">SUBMIT</button>
       </form>

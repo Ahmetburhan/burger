@@ -8,9 +8,9 @@ router.get('/', function(req, res){
   });
 });
 
-router.get('/', function(req, res){
+router.get('/menu', function(req, res){
   burger.getMenu(function(data){
-    res.render('menuDropdown', { itm: data });
+    res.render('restaurantMenu', { itm: data });
   });
 });
 
