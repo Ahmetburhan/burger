@@ -16,8 +16,8 @@ var burger = {
       cb(res);
     });
   },
-  updateOne: function(colVal, condition, cb){
-    orm.insertOne('burgers', colVal, condition, function(res){
+  updateOne: function(colVal, conditionVal, cb){
+    orm.insertOne('burgers', 'devoured', colVal, 'id', conditionVal, function(res){
       cb(res);
     });
   }
