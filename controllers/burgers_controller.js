@@ -2,19 +2,28 @@ var express = require('express');
 var router = express.Router();
 var burger = require('../models/burger.js');
 
-//renders the menuDropdown first
-// router.get('/', function(req, res){
-//   burger.getMenu(function(data){
-//     res.render('partials/menu/menuDropdown', { dropdown: data });
-//     res.redirect('/home');
-//   });
-// });
-
 router.get('/', function(req, res){
+  //create an object that holds information from both the burger and menu table
+  var info = {
+    brgr: [],
+    itm: []
+  };
+  //grab data from burger table
   burger.selectAll(function(data){
-    res.render('index', { brgr: data });
+    for(var i=0;i<data.length; i++){
+      info.brgr.push(data[i]);
+    }
   });
+  //grab data from menu table
+  burger.getMenu(function(data){
+    for(var i=0;i<data.length; i++){
+      info.itm.push(data[i]);
+    }
+  });
+  //send it all to the index.handlebars
+  res.render('index', info);
 });
+
 
 router.get('/menu', function(req, res){
   burger.getMenu(function(data){
@@ -31,7 +40,6 @@ router.post('/create', function(req, res){
 
 router.put('/update/:id', function(req, res){
   var condition = req.params.id;
-
   burger.updateOne([req.body.devoured], condition, function(){
     res.redirect('/');
   });

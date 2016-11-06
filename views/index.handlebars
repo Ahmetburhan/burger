@@ -28,6 +28,10 @@
           <div class="card light-green lighten-2">
             <p class="grey-text">
               {{this.id}}. {{this.burger_name}}
+
+              <form action="delete/{{this.id}}?_method=DELETE" method="POST">
+                <button type="submit" class="waves-effect waves-light btn green z-depth-4">Remove</button>
+              </form>
             </p>
           </div>
         {{/if}}
@@ -42,8 +46,10 @@
     <div class="card-panel center-align deep-purple lighten-3">
       <h5 class="white-text"><strong>Order a Burger</strong></h5>
       <form action="/create" method="POST" class="button-size">
+
         {{! Dropdown that allows user to only pick burgers on menu }}
-        {{> menu/menuDropdown}}
+        {{> menu/dropdown}}
+
         <br>
         <button type="submit" class="waves-effect waves-light btn deep-purple lighten-1 z-depth-4">SUBMIT</button>
       </form>
