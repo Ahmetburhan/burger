@@ -1,7 +1,7 @@
 <select class="browser-default" name="burgerInput">
   <option value="" disabled selected>Choose a burger</option>
 
-  {{#each itm}}
+  {{#each dropdown}}
     {{#if entree}}
       <option value={{this.id}}>{{this.item}}</option>
     {{/if}}

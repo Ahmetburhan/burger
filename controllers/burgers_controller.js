@@ -1,6 +1,14 @@
 var express = require('express');
 var router = express.Router();
-var burger = require('./../models/burger.js');
+var burger = require('../models/burger.js');
+
+//renders the menuDropdown first
+// router.get('/', function(req, res){
+//   burger.getMenu(function(data){
+//     res.render('partials/menu/menuDropdown', { dropdown: data });
+//     res.redirect('/home');
+//   });
+// });
 
 router.get('/', function(req, res){
   burger.selectAll(function(data){
@@ -15,6 +23,7 @@ router.get('/menu', function(req, res){
 });
 
 router.post('/create', function(req, res){
+  console.log(req.body);
   burger.insertOne([req.body.burgerInput], function(){
     res.redirect('/');
   });

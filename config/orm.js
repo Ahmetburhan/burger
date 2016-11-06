@@ -17,9 +17,14 @@ var orm ={
     });
   },
 
-  updateOne: function(table, column, condition, callback){
-    var queryString = 'UPDATE ' + table + ' SET ' + objToSql(column) + ' WHERE ' + condition;
-    connection.query(queryString , function(err, data){
+  updateOne: function(table, colVal, condition, callback){
+    var queryString = 'UPDATE ' + table;
+    queryString+= ' SET ';
+    queryString+= objToSql(colVal);
+    queryString+= ' WHERE ';
+    queryString+= condition;
+
+    connection.query(queryString, function(err, data){
       if(err) throw err;
       callback(data);
     });
