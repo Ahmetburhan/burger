@@ -32,15 +32,19 @@ router.get('/menu', function(req, res){
 });
 
 router.post('/create', function(req, res){
-  console.log(req.body);
   burger.insertOne([req.body.burgerInput], function(){
     res.redirect('/');
   });
 });
 
 router.put('/update/:id', function(req, res){
-  var condition = req.params.id;
-  burger.updateOne([req.body.devoured], condition, function(){
+  burger.updateOne([req.body.devoured], [req.params.id], function(){
+    res.redirect('/');
+  });
+});
+
+router.delete('/delete/:id', function(req, res){
+  burger.deleteOne([req.params.id], function(){
     res.redirect('/');
   });
 });
