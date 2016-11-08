@@ -11,7 +11,6 @@ Created during Week 14 of Rutgers Coding Bootcamp. The goal was to create a Burg
 - Handlebars
 - npm body-parser (https://www.npmjs.com/package/inquirer)
 - npm express (https://www.npmjs.com/package/express)
-- npm path (https://www.npmjs.com/package/path)
 - npm mysql
 - npm handlebars
 - npm express-handlbars
