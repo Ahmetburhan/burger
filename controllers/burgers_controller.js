@@ -13,15 +13,15 @@ router.get('/', function(req, res){
     for(var i=0;i<data.length; i++){
       info.brgr.push(data[i]);
     }
+     //grab data from menu table
+    burger.getMenu(function(data){
+      for(var i=0;i<data.length; i++){
+        info.itm.push(data[i]);
+      }
+      //send it all to the index.handlebars
+      res.render('index', info);
+    });    
   });
-  //grab data from menu table
-  burger.getMenu(function(data){
-    for(var i=0;i<data.length; i++){
-      info.itm.push(data[i]);
-    }
-  });
-  //send it all to the index.handlebars
-  res.render('index', info);
 });
 
 
