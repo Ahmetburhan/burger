@@ -10,16 +10,16 @@ https://guarded-gorge-59976.herokuapp.com/
 ![Screen shot](public/assets/images/Index.png)
 Index Page
 
-![Screen shot](public/assets/images/Form.png)
+![Screen shot2](public/assets/images/Form.png)
 Form to create new burgers or sides to 'devour' from drop down menus
 
-![Screen shot](public/assets/images/Menu.png)
+![Screen shot3](public/assets/images/Menu.png)
 Menu Page - Displays all available Burgers and Sides
 
 ## Technologies used
 - Node.js
 - MySQL
-- Handlebars
+- Handlebars - http://handlebarsjs.com/
 - body-parser NPM Package - https://www.npmjs.com/package/inquirer
 - express NPM Package - https://www.npmjs.com/package/express
 - mysql NPM Package - https://www.npmjs.com/package/mysql
